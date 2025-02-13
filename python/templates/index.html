@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Queue System</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Smart Queue System</h1>
+        <button id="themeToggle" class="theme-toggle">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="main-content">
+        <div class="card">
+          <h2>Book Your Slot</h2>
+          <form id="bookingForm">
+            <div class="form-group">
+              <label>Service Type</label>
+              <select id="serviceType">
+                <option value="hospital">Hospital</option>
+                <option value="bank">Bank</option>
+                <option value="government">Government</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Date</label>
+                <input type="date" id="bookingDate" required />
+              </div>
+              <div class="form-group">
+                <label>Time</label>
+                <input type="time" id="bookingTime" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Your Name</label>
+              <input
+                type="text"
+                id="customerName"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Book Now</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Current Queue</h2>
+          <div id="queueList"></div>
+        </div>
+      </div>
+
+      <div class="card service-counter">
+        <h2>Service Counter</h2>
+        <button class="btn btn-primary" onclick="callNextCustomer()">
+          Call Next Customer
+        </button>
+        <div id="currentCustomer" class="current-customer"></div>
+      </div>
+
+      <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
